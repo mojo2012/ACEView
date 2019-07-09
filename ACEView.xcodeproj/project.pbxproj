@@ -2361,7 +2361,6 @@
 		36F169EB16B9346C00E8965C /* ACEView_Tests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ACEView_Tests.h; sourceTree = "<group>"; };
 		36F169EC16B9346C00E8965C /* ACEView_Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ACEView_Tests.m; sourceTree = "<group>"; };
 		36F169EE16B9346C00E8965C /* ACEView Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ACEView Tests-Prefix.pch"; sourceTree = "<group>"; };
-		36F169F716B9374200E8965C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		3DE985741B60FFFF00741F64 /* ACESearchItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACESearchItem.m; path = Source/Utilities/ACESearchItem.m; sourceTree = "<group>"; };
 		3DE985761B61000D00741F64 /* ACESearchItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACESearchItem.h; path = Source/Utilities/Headers/ACESearchItem.h; sourceTree = "<group>"; };
 		400DB09519D60A38003FFD07 /* ACEKeyboardHandlers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ACEKeyboardHandlers.h; path = Source/Utilities/Headers/ACEKeyboardHandlers.h; sourceTree = "<group>"; };
@@ -2879,6 +2878,7 @@
 		7C9B6728166B0FED00A24CB7 /* ACEModes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACEModes.h; path = Source/Utilities/Headers/ACEModes.h; sourceTree = "<group>"; };
 		7C9B672A166B117100A24CB7 /* ACEModeNames.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACEModeNames.h; path = Source/Utilities/Headers/ACEModeNames.h; sourceTree = "<group>"; };
 		7CAF0CFF15EBAA7C00161329 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		8368AF8E22D46C2F00FB959D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		E1918F821AB354B400EDB5B0 /* ACEWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ACEWebView.h; path = Source/Utilities/ACEWebView.h; sourceTree = "<group>"; };
 		E1918F831AB354B400EDB5B0 /* ACEWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ACEWebView.m; path = Source/Utilities/ACEWebView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -5576,7 +5576,7 @@
 		7C8A728215EA0769007E5EB8 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0610;
+				LastUpgradeCheck = 1020;
 				ORGANIZATIONNAME = "Code of Interest";
 			};
 			buildConfigurationList = 7C8A728515EA0769007E5EB8 /* Build configuration list for PBXProject "ACEView" */;
@@ -5584,7 +5584,9 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
+				Base,
 			);
 			mainGroup = 7C8A728015EA0769007E5EB8;
 			productRefGroup = 7C8A728D15EA0769007E5EB8 /* Products */;
@@ -5694,7 +5696,7 @@
 		36F169F616B9374200E8965C /* MainMenu.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
-				36F169F716B9374200E8965C /* en */,
+				8368AF8E22D46C2F00FB959D /* Base */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
@@ -5744,6 +5746,7 @@
 				GCC_PREFIX_HEADER = "ACEView Tests/ACEView Tests-Prefix.pch";
 				INFOPLIST_FILE = "ACEView Tests/ACEView Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "coi.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -5768,6 +5771,7 @@
 				GCC_PREFIX_HEADER = "ACEView Tests/ACEView Tests-Prefix.pch";
 				INFOPLIST_FILE = "ACEView Tests/ACEView Tests-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "coi.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -5778,13 +5782,33 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -5793,9 +5817,11 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = macosx;
 			};
@@ -5805,18 +5831,39 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
 				SDKROOT = macosx;
 			};
 			name = Release;
@@ -5824,8 +5871,8 @@
 		7C8A72A215EA0769007E5EB8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -5834,7 +5881,8 @@
 				GCC_PREFIX_HEADER = "ACEView/ACEView-Prefix.pch";
 				INFOPLIST_FILE = "ACEView/ACEView-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				VALID_ARCHS = "x86_64 i386";
@@ -5845,8 +5893,8 @@
 		7C8A72A315EA0769007E5EB8 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				COMBINE_HIDPI_IMAGES = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -5855,7 +5903,8 @@
 				GCC_PREFIX_HEADER = "ACEView/ACEView-Prefix.pch";
 				INFOPLIST_FILE = "ACEView/ACEView-Info.plist";
 				INSTALL_PATH = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				VALID_ARCHS = "x86_64 i386";
@@ -5871,6 +5920,7 @@
 				GCC_PREFIX_HEADER = "ACE View Example/ACE View Example-Prefix.pch";
 				INFOPLIST_FILE = "ACE View Example/ACE View Example-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -5884,6 +5934,7 @@
 				GCC_PREFIX_HEADER = "ACE View Example/ACE View Example-Prefix.pch";
 				INFOPLIST_FILE = "ACE View Example/ACE View Example-Info.plist";
 				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.codeofinterest.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
