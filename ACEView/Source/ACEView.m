@@ -62,10 +62,30 @@ static NSArray *allowedSelectorNamesForJavaScript;
 {
     webView = [[ACEWebView alloc] init];
     [webView setFrameLoadDelegate:self];
-
+    
     printingView = [[WebView alloc] initWithFrame:NSMakeRect(0.0, 0.0, 300.0, 1.0)];
     [printingView.mainFrame.frameView setAllowsScrolling:NO];
     [printingView setUIDelegate:self];
+    
+    [self addSubview:webView];
+    [self setBorderType:NSBezelBorder];
+    
+    [self resizeWebView];
+    
+    textFinder = [[NSTextFinder alloc] init];
+    [textFinder setClient:self];
+    [textFinder setFindBarContainer:self];
+    
+    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
+    
+    NSString *javascriptDirectory = [self aceJavascriptDirectoryPath];
+    
+    NSString *htmlPath = [self htmlPageFilePath];
+    
+    NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
+    html = [html stringByReplacingOccurrencesOfString:ACE_JAVASCRIPT_DIRECTORY withString:javascriptDirectory];
+    
+    [[webView mainFrame] loadHTMLString:html baseURL:[bundle bundleURL]];
 }
 
 - (id) initWithFrame:(NSRect)frame {
@@ -82,28 +102,6 @@ static NSArray *allowedSelectorNamesForJavaScript;
     }
 
     return self;
-}
-
-- (void) awakeFromNib {
-    [self addSubview:webView];
-    [self setBorderType:NSBezelBorder];
-
-    [self resizeWebView];
-    
-    textFinder = [[NSTextFinder alloc] init];
-    [textFinder setClient:self];
-    [textFinder setFindBarContainer:self];
-
-    NSBundle *bundle = [NSBundle bundleForClass:[self class]];
-    
-    NSString *javascriptDirectory = [self aceJavascriptDirectoryPath];
-    
-    NSString *htmlPath = [self htmlPageFilePath];
-    
-    NSString *html = [NSString stringWithContentsOfFile:htmlPath encoding:NSUTF8StringEncoding error:nil];
-    html = [html stringByReplacingOccurrencesOfString:ACE_JAVASCRIPT_DIRECTORY withString:javascriptDirectory];
-    
-    [[webView mainFrame] loadHTMLString:html baseURL:[bundle bundleURL]];
 }
 
 - (void) setBorderType:(NSBorderType)borderType {
